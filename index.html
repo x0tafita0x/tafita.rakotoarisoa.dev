@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flymetothemoon</title>
+    <meta name="description" content="Portfolio de RAMAMONJISOA Aina Aneliot, développeur full-stack et architecte logiciel.">
+    <meta name="author" content="RAMAMONJISOA Aina Aneliot">
+    <meta name="keywords" content="Développeur, Full-Stack, Architecte Logiciel, Portfolio, JavaScript, PHP, JAVA">
+    <meta name="theme-color" content="#000000">
+    <meta property="og:title" content="Flymetothemoon - Portfolio de RAMAMONJISOA Aina Aneliot" />
+    <meta property="og:description" content="Découvrez le portfolio de RAMAMONJISOA Aina Aneliot, développeur full-stack et architecte logiciel." />
+    <meta property="og:image" content="https://aneliotramamonjisoa.me/src/assets/logo.webp" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://aneliotramamonjisoa.me/" />
+
+    <!-- Ajoutez aussi ces balises pour Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://aneliotramamonjisoa.me/" />
+    <meta name="twitter:title" content="Flymetothemoon - Portfolio de RAMAMONJISOA Aina Aneliot" />
+    <meta name="twitter:description" content="Découvrez le portfolio de RAMAMONJISOA Aina Aneliot, développeur full-stack et architecte logiciel." />
+    <meta name="twitter:image" content="https://aneliotramamonjisoa.me/src/assets/logo.webp" />
+
+    <!-- URL canonique -->
+    <link rel="canonical" href="https://aneliotramamonjisoa.me/" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": " RAMAMONJISOA Aina Aneliot",
+      "url": "https://github.com/Pokaneliot",
+      "jobTitle": "Développeur Full-Stack, Architecte Logiciel",
+      "image": "src/assets/logo.webp",
+      "sameAs": [
+        "https://www.linkedin.com/in/aneliot-ramamonjisoa-198767297/",
+        "mailto:aneliotramamonjisoa@gmail.com"
+      ]
+    }
+    </script>
+    <link rel="icon" href="src/assets/logo.webp" type="image/webp">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+    <link href="./src/output.css" rel="stylesheet">
+    <style>
+        .flag-icon { width: 24px; height: 16px; transition: all 0.3s ease; }
+        .language-toggle { display: flex; align-items: center; gap: 4px; padding: 6px; border-radius: 6px; background: rgba(255,255,255,0.1); transition: all 0.3s ease; }
+        .language-toggle:focus-visible { outline: 2px solid #3b82f6; outline-offset: 2px; }
+        .language-toggle:hover { background: rgba(255,255,255,0.2); }
+        .flag-icon.opacity-50 { opacity: 0.5; }
+        .page-loader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #f9fafb; display: flex; justify-content: center; align-items: center; z-index: 9999; opacity: 1; visibility: visible; transition: all 0.6s ease-out; overflow: hidden; }
+        .dark .page-loader { background: #0a0a0a; }
+        .page-loader.hidden { opacity: 0; visibility: hidden; transform: translateY(-20px); }
+        .loader-content { text-align: center; color: #374151; position: relative; z-index: 2; }
+        .dark .loader-content { color: white; }
+        
+        /* Style pixel art/rétro */
+        .pixel-loader { position: relative; margin: 0 auto 40px; display: flex; flex-direction: column; align-items: center; }
+        
+        /* Icône terminal pixelisée */
+        .pixel-terminal { width: 64px; height: 48px; background: rgba(55, 65, 81, 0.1); border: 2px solid rgba(55, 65, 81, 0.3); position: relative; margin-bottom: 20px; animation: terminal-flicker 2s ease-in-out infinite; }
+        .dark .pixel-terminal { background: rgba(255, 255, 255, 0.1); border: 2px solid rgba(255, 255, 255, 0.3); }
+        .pixel-terminal::before { content: ''; position: absolute; top: 4px; left: 4px; width: 4px; height: 4px; background: #92400e; box-shadow: 0 0 0 2px #92400e, 8px 0 0 0 #92400e, 16px 0 0 0 #92400e, 0 8px 0 0 rgba(146, 64, 14, 0.7), 8px 8px 0 0 rgba(146, 64, 14, 0.7), 16px 8px 0 0 rgba(146, 64, 14, 0.7); animation: pixel-text 3s ease-in-out infinite; }
+        .pixel-terminal::after { content: ''; position: absolute; bottom: 6px; right: 6px; width: 6px; height: 2px; background: rgba(55, 65, 81, 0.6); animation: cursor-blink 1s infinite; }
+        .dark .pixel-terminal::after { background: rgba(255, 255, 255, 0.6); }
+        
+        /* Barre de progression pixelisée */
+        .pixel-progress { display: flex; gap: 2px; justify-content: center; align-items: center; margin: 20px 0; }
+        .pixel-block { width: 8px; height: 8px; background: rgba(55, 65, 81, 0.2); position: relative; animation: pixel-fill 4s ease-in-out infinite; }
+        .dark .pixel-block { background: rgba(255, 255, 255, 0.2); }
+        .pixel-block:nth-child(1) { animation-delay: 0s; }
+        .pixel-block:nth-child(2) { animation-delay: 0.2s; }
+        .pixel-block:nth-child(3) { animation-delay: 0.4s; }
+        .pixel-block:nth-child(4) { animation-delay: 0.6s; }
+        .pixel-block:nth-child(5) { animation-delay: 0.8s; }
+        .pixel-block:nth-child(6) { animation-delay: 1s; }
+        .pixel-block:nth-child(7) { animation-delay: 1.2s; }
+        .pixel-block:nth-child(8) { animation-delay: 1.4s; }
+        .pixel-block:nth-child(9) { animation-delay: 1.6s; }
+        .pixel-block:nth-child(10) { animation-delay: 1.8s; }
+        
+        /* Éléments décoratifs pixelisés */
+        .pixel-particles { position: absolute; width: 100%; height: 100%; pointer-events: none; }
+        .pixel-particle { position: absolute; width: 4px; height: 4px; background: rgba(55, 65, 81, 0.4); animation: pixel-float 6s ease-in-out infinite; }
+        .dark .pixel-particle { background: rgba(255, 255, 255, 0.4); }
+        .pixel-particle:nth-child(1) { left: 20%; top: 25%; animation-delay: 0s; }
+        .pixel-particle:nth-child(2) { left: 80%; top: 35%; animation-delay: -1.5s; }
+        .pixel-particle:nth-child(3) { left: 30%; top: 65%; animation-delay: -3s; }
+        .pixel-particle:nth-child(4) { left: 70%; top: 75%; animation-delay: -4.5s; }
+        .pixel-particle:nth-child(5) { left: 50%; top: 15%; animation-delay: -2s; }
+        .pixel-particle:nth-child(6) { left: 15%; top: 55%; animation-delay: -3.5s; }
+        
+        .loader-text { font-family: 'IBM Plex Mono', monospace; font-size: 16px; font-weight: 400; margin-bottom: 8px; color: #374151; letter-spacing: 2px; animation: text-glitch 3s ease-in-out infinite; }
+        .dark .loader-text { color: rgba(255, 255, 255, 0.9); }
+        .loader-subtitle { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6b7280; letter-spacing: 1px; text-transform: uppercase; }
+        .dark .loader-subtitle { color: rgba(255, 255, 255, 0.5); }
+        
+        /* Animations pixel art */
+        @keyframes terminal-flicker { 0%, 100% { opacity: 1; box-shadow: 0 0 10px rgba(55, 65, 81, 0.1); } 50% { opacity: 0.95; box-shadow: 0 0 15px rgba(146, 64, 14, 0.2); } }
+        .dark .pixel-terminal { animation: terminal-flicker-dark 2s ease-in-out infinite; }
+        @keyframes terminal-flicker-dark { 0%, 100% { opacity: 1; box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); } 50% { opacity: 0.95; box-shadow: 0 0 15px rgba(146, 64, 14, 0.2); } }
+        @keyframes pixel-text { 0%, 100% { opacity: 1; } 25% { opacity: 0.8; } 50% { opacity: 1; } 75% { opacity: 0.9; } }
+        @keyframes cursor-blink { 0%, 50% { opacity: 1; } 51%, 100% { opacity: 0; } }
+        @keyframes pixel-fill { 0%, 20% { background: rgba(55, 65, 81, 0.2); transform: scale(1); } 40% { background: rgba(146, 64, 14, 0.6); transform: scale(1.1); } 60%, 100% { background: rgba(146, 64, 14, 0.8); transform: scale(1); box-shadow: 0 0 4px rgba(146, 64, 14, 0.5); } }
+        .dark .pixel-block { background: rgba(255, 255, 255, 0.2); }
+        @keyframes pixel-fill-dark { 0%, 20% { background: rgba(255, 255, 255, 0.2); transform: scale(1); } 40% { background: rgba(146, 64, 14, 0.6); transform: scale(1.1); } 60%, 100% { background: rgba(146, 64, 14, 0.8); transform: scale(1); box-shadow: 0 0 4px rgba(146, 64, 14, 0.5); } }
+        @keyframes pixel-float { 0%, 100% { opacity: 0.4; transform: translateY(0px) scale(1); } 25% { opacity: 0.7; transform: translateY(-4px) scale(1.1); } 50% { opacity: 0.5; transform: translateY(-2px) scale(0.9); } 75% { opacity: 0.6; transform: translateY(-6px) scale(1.05); } }
+        @keyframes text-glitch { 0%, 100% { opacity: 1; transform: translateX(0); } 10% { opacity: 0.9; transform: translateX(-1px); } 20% { opacity: 1; transform: translateX(1px); } 30% { opacity: 0.95; transform: translateX(0); } }
+        .language-transition { opacity: 0; transform: translateY(20px); transition: all 0.3s ease-out; }
+        .language-transition.active { opacity: 1; transform: translateY(0); }
+        .fade-in { opacity: 0; transform: translateY(30px); transition: all 0.6s ease-out; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        .project-card { opacity: 0; transform: translateX(-50px); transition: all 0.5s ease-out; }
+        .project-card.visible { opacity: 1; transform: translateX(0); }
+        .nav-dot { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .nav-dot:focus-visible { outline:2px solid #92400e; }
+        .nav-dot:hover { background-color: #92400e !important; transform: scale(1.5); }
+        .nav-dot:hover { transform: scale(1.5); }
+        .nav-dot.active { transform: scale(1.3); }
+        .typewriter-cursor { animation: blink 1s infinite; }
+        @keyframes blink { 0%,50%{opacity:1;} 51%,100%{opacity:0;} }
+        button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px solid #92400e; outline-offset: 2px; }
+        .progress-bar { background: #e5e7eb; border-radius: 8px; height: 8px; overflow: hidden; }
+        .progress-fill { background: #92400e; height: 100%; width: 0; transition: width 1s cubic-bezier(0.4, 0, 0.2, 1); border-radius: 8px; }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-trueblack">
+<!-- Loader de page pixel art/rétro -->
+<div id="pageLoader" class="page-loader" aria-label="Chargement du portfolio" role="status">
+    <!-- Particules pixelisées -->
+    <div class="pixel-particles">
+        <div class="pixel-particle"></div>
+        <div class="pixel-particle"></div>
+        <div class="pixel-particle"></div>
+        <div class="pixel-particle"></div>
+        <div class="pixel-particle"></div>
+        <div class="pixel-particle"></div>
+    </div>
+    
+    <div class="loader-content">
+        <!-- Loader pixel art -->
+        <div class="pixel-loader">
+            <!-- Terminal pixelisé -->
+            <div class="pixel-terminal"></div>
+            
+            <!-- Barre de progression pixelisée -->
+            <div class="pixel-progress">
+                <div class="pixel-block"></div>
+                <div class="pixel-block"></div>
+                <div class="pixel-block"></div>
+                <div class="pixel-block"></div>
+                <div class="pixel-block"></div>
+                <div class="pixel-block"></div>
+                <div class="pixel-block"></div>
+                <div class="pixel-block"></div>
+                <div class="pixel-block"></div>
+                <div class="pixel-block"></div>
+            </div>
+        </div>
+        
+        <div class="loader-text" data-i18n="loading">loading...</div>
+        <div class="loader-subtitle" data-i18n="loading_subtitle">initializing terminal</div>
+    </div>
+</div>
+<!-- Theme toggle + Language toggle -->
+<div class="fixed top-6 right-6 z-50 flex gap-3">
+    <button id="languageToggle" class="h-12 p-2 rounded-full bg-gray-50 dark:bg-darkgray hover:shadow-lg transition-all language-toggle" aria-label="Changer la langue">
+        <img id="frFlag" src="https://flagcdn.com/w40/fr.png" alt="Français" class="flag-icon">
+        <img id="enFlag" src="https://flagcdn.com/w40/gb.png" alt="English" class="flag-icon opacity-50">
+    </button>
+    <button id="themeToggle" class="h-12 w-12 p-3 rounded-full bg-gray-50 dark:bg-darkgray shadow-lg hover:shadow-xl transition-all" aria-label="Changer le thème">
+        <i class="fas fa-moon text-gray-800 dark:hidden" aria-hidden="true"></i>
+        <i class="fas fa-sun text-yellow-300 hidden dark:block" aria-hidden="true"></i>
+    </button>
+</div>
+<!-- Floating navigation -->
+<nav class="fixed left-6 top-1/2 transform -translate-y-1/2 z-40 hidden md:block" aria-label="Navigation principale">
+    <div class="flex flex-col space-y-4">
+        <a href="#about" class="w-3 h-3 rounded-full bg-gray-400 dark:bg-gray-600 nav-dot active-nav" style="--hover-color: #92400e;" data-tooltip="À propos" data-i18n-attr="data-tooltip:nav_about" aria-label="À propos"></a>
+        <a href="#skills" class="w-3 h-3 rounded-full bg-gray-400 dark:bg-gray-600 nav-dot" style="--hover-color: #92400e;" data-tooltip="Compétences" data-i18n-attr="data-tooltip:nav_skills" aria-label="Compétences"></a>
+        <a href="#projects" class="w-3 h-3 rounded-full bg-gray-400 dark:bg-gray-600 nav-dot" style="--hover-color: #92400e;" data-tooltip="Projets" data-i18n-attr="data-tooltip:nav_projects" aria-label="Projets"></a>
+        <a href="#experiences" class="w-3 h-3 rounded-full bg-gray-400 dark:bg-gray-600 nav-dot" style="--hover-color: #92400e;" data-tooltip="Expérience" data-i18n-attr="data-tooltip:nav_experience" aria-label="Expérience"></a>
+        <a href="#contact" class="w-3 h-3 rounded-full bg-gray-400 dark:bg-gray-600 nav-dot" style="--hover-color: #92400e;" data-tooltip="Contact" data-i18n-attr="data-tooltip:nav_contact" aria-label="Contact"></a>
+        <a href="#game" class="w-3 h-3 rounded-full bg-gray-400 dark:bg-gray-600 nav-dot" style="--hover-color: #92400e;" data-tooltip="Jeu" data-i18n-attr="data-tooltip:nav_game" aria-label="Jeu"></a>
+    </div>
+</nav>
+
+<!-- Header with terminal style -->
+<header id="about" class="container mx-auto px-4 py-16 fade-in language-transition">
+    <div class="max-w-4xl mx-auto">
+        <div class="bg-gray-100 dark:bg-darkgray p-8 rounded-lg shadow-sm">
+            <div class="flex items-center mb-6">
+                <div class="w-3 h-3 rounded-full bg-red-500 mr-2"></div>
+                <div class="w-3 h-3 rounded-full bg-yellow-500 mr-2"></div>
+                <div class="w-3 h-3 rounded-full" style="background-color: #92400e;"></div>
+            </div>
+            <div class="terminal-output mb-6">
+                <p class="mono text-gray-600 dark:text-gray-400 mb-2 command-line" data-i18n="whoami">whoami</p>
+                <div class="flex items-center">
+                    <h1 id="typewriter-name" class="text-4xl md:text-5xl font-medium text-gray-900 dark:text-white mb-2 mono"></h1>
+                    <div class="rocket-animation-container ml-4">
+                        <!-- Animation de fusée -->
+                        <div class="stage">
+                            <div class="rocket-body">
+                                <div class="rocket-top">
+                                    <div class="antenna"></div>
+                                    <div class="base2"></div>
+                                    <div class="base1"></div>
+                                </div>
+                                <div class="rocket-glass">
+                                    <div class="reflection"></div>
+                                </div>
+                                <div class="rocket-flag">
+                                    <img src="https://i.postimg.cc/02tkCh3m/1682594977157.png" width="20"
+                                         height="20" alt="flag" />
+                                </div>
+                                <div class="boster bosterL">
+                                </div>
+                                <div class="boster bosterR"></div>
+                                <div class="ring">
+                                    <div class="s1"></div>
+                                    <div class="s1"></div>
+                                    <div class="s1"></div>
+                                    <div class="s1"></div>
+                                    <div class="s1"></div>
+                                    <div class="s1"></div>
+                                    <div class="s1"></div>
+                                </div>
+                                <div class="fire">
+                                    <div class="flame h1"></div>
+                                    <div class="flame h2"></div>
+                                    <div class="flame h3"></div>
+                                    <div class="flame h4"></div>
+                                    <div class="flame h5"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Message animé -->
+                        <div class="rocket-message">
+                            <span id="rocket-words">Fly me to the moon :\ </span>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-gray-500 dark:text-gray-400" data-i18n="developer_title">Développeur Full-Stack</p>
+            </div>
+
+            <div class="terminal-output mb-6">
+                <p class="mono text-gray-600 dark:text-gray-400 mb-2 command-line">cat about.txt</p>
+                <p class="text-gray-700 dark:text-gray-300 leading-relaxed output-line" data-i18n="about_text">
+                    Développeur engagé et orienté vers l’avenir, animé par une forte curiosité technique 
+                    et une réelle envie de progresser en continu.
+                    À l’aise aussi bien sur le backend que sur le frontend, 
+                    avec une appétence marquée pour les architectures robustes et les systèmes bien conçus, 
+                    je m’appuie sur des bases solides en informatique, systèmes et technologies intelligentes 
+                    pour concevoir des solutions fiables et évolutives.
+
+                    J’aborde chaque projet comme une opportunité d’apprendre, 
+                    de remettre en question l’existant et d’apporter une valeur concrète, 
+                    avec l’objectif constant de monter en compétence et de viser l’excellence technique sur le long terme.
+                </p>
+            </div>
+
+            <div class="terminal-output">
+                <p class="mono text-gray-600 dark:text-gray-400 mb-2 command-line" data-i18n="contact_sh">./contact.sh</p>
+                <div class="flex flex-wrap gap-4 mt-2">
+                    <a href="https://github.com/Pokaneliot" target="_blank"
+                       class="text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition flex items-center">
+                        <i class="fab fa-github mr-2"></i> GitHub
+                    </a>
+                    <a href="https://www.linkedin.com/in/aneliot-ramamonjisoa-198767297/" target="_blank"
+                       class="text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition flex items-center">
+                        <i class="fab fa-linkedin mr-2"></i> LinkedIn
+                    </a>
+                    <a href="mailto:aneliotramamonjisoa@gmail.com"
+                       class="text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition flex items-center">
+                        <i class="fas fa-envelope mr-2"></i> Email
+                    </a>
+                    <a href="src/assets/cv.pdf" download
+                       class="text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition flex items-center">
+                        <i class="fas fa-file-download mr-2"></i>CV
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Main content -->
+<main class="container mx-auto px-4">
+    <!-- Skills section -->
+    <section id="skills" class="mb-20 fade-in language-transition">
+        <div class="max-w-4xl mx-auto">
+            <div class="terminal-output mb-8">
+                <p class="mono text-gray-600 dark:text-gray-400 command-line" data-i18n="skills_cmd">ls skills/</p>
+                <h2 class="mono text-2xl font-medium text-gray-900 dark:text-white mt-4 mb-6" data-i18n="skills_title">Compétences Techniques</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Langages de programmation -->
+                <div class="bg-gray-50 dark:bg-darkgray p-6 rounded-lg border border-gray-200 dark:border-gray-700 card-hover fade-in">
+                    <div class="flex items-center mb-6">
+                        <div class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-900 flex items-center justify-center mr-4">
+                            <i class="fas fa-code" style="color: #92400e;"></i>
+                        </div>
+                        <h3 class="mono text-xl font-semibold" data-i18n="skills_languages">Langages de programmation</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-1 text-sm text-gray-600 dark:text-gray-400">
+                                <span>C</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="--progress-width: 60%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1 text-sm text-gray-600 dark:text-gray-400">
+                                <span>Java</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="--progress-width: 70%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1 text-sm text-gray-600 dark:text-gray-400">
+                                <span>JavaScript</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="--progress-width: 50%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1 text-sm text-gray-600 dark:text-gray-400">
+                                <span>PHP</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="--progress-width: 65%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1 text-sm text-gray-600 dark:text-gray-400">
+                                <span>C#</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="--progress-width: 60%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1 text-sm text-gray-600 dark:text-gray-400">
+                                <span>Python</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="--progress-width: 68%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Frameworks -->
+                <div class="bg-gray-50 dark:bg-darkgray p-6 rounded-lg border border-gray-200 dark:border-gray-700 card-hover fade-in">
+                    <div class="flex items-center mb-6">
+                        <div class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-900 flex items-center justify-center mr-4">
+                            <i class="fas fa-cubes" style="color: #92400e;"></i>
+                        </div>
+                        <h3 class="mono text-xl font-semibold" data-i18n="skills_frameworks">Frameworks</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-1 text-sm text-gray-600 dark:text-gray-400">
+                                <span>Spring Boot</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="--progress-width: 70%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1 text-sm text-gray-600 dark:text-gray-400">
+                                <span>Laravel</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="--progress-width: 50%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1 text-sm text-gray-600 dark:text-gray-400">
+                                <span>Symfony</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="--progress-width: 65%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1 text-sm text-gray-600 dark:text-gray-400">
+                                <span>CodeIgniter</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="--progress-width: 60%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1 text-sm text-gray-600 dark:text-gray-400">
+                                <span>Vue.js</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="--progress-width: 45%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1 text-sm text-gray-600 dark:text-gray-400">
+                                <span>React</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="--progress-width: 46%"></div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <!-- Bases de données -->
+                <div class="bg-gray-50 dark:bg-darkgray p-6 rounded-lg border border-gray-200 dark:border-gray-700 card-hover fade-in">
+                    <div class="flex items-center mb-6">
+                        <div class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-900 flex items-center justify-center mr-4">
+                            <i class="fas fa-database" style="color: #92400e;"></i>
+                        </div>
+                        <h3 class="mono text-xl font-semibold" data-i18n="skills_databases">Base de données</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-1 text-sm text-gray-600 dark:text-gray-400">
+                                <span>MySQL</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="--progress-width: 70%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1 text-sm text-gray-600 dark:text-gray-400">
+                                <span>PostgreSQL</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="--progress-width: 60%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1 text-sm text-gray-600 dark:text-gray-400">
+                                <span>Oracle</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="--progress-width: 65%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Outils & Technologies -->
+                <div class="bg-gray-50 dark:bg-darkgray p-6 rounded-lg border border-gray-200 dark:border-gray-700 card-hover fade-in">
+                    <div class="flex items-center mb-6">
+                        <div class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-900 flex items-center justify-center mr-4">
+                            <i class="fas fa-tools" style="color: #92400e;"></i>
+                        </div>
+                        <h3 class="mono text-xl font-semibold" data-i18n="skills_tools">Outils & Technologies</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag px-3 py-1 rounded-full text-sm">Git</span>
+                        <span class="tag px-3 py-1 rounded-full text-sm">Linux</span>
+                        <span class="tag px-3 py-1 rounded-full text-sm">Docker</span>
+                        <span class="tag px-3 py-1 rounded-full text-sm">Postman</span>
+                        <span class="tag px-3 py-1 rounded-full text-sm">Apache</span>
+                        <span class="tag px-3 py-1 rounded-full text-sm">WildFly</span>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Projects section -->
+    <section id="projects" class="mb-20 fade-in language-transition">
+        <div class="max-w-4xl mx-auto">
+            <div class="terminal-output mb-8">
+                <p class="mono text-gray-600 dark:text-gray-400 command-line" data-i18n="projects_cmd">cd projects/ && ls -l</p>
+                <h2 class="mono text-2xl font-medium text-gray-900 dark:text-white mt-4 mb-6" data-i18n="projects_title">Projets</h2>
+            </div>
+
+            <!-- Project 1 -->
+            <div class="bg-gray-50 dark:bg-darkgray p-6 rounded-lg border border-gray-200 dark:border-gray-700 card-hover project-card">
+                <div class="flex justify-between items-start mb-4">
+                    <h3 class="text-xl font-medium text-gray-900 dark:text-white" data-i18n="guard_title">GUARD - Projet de fin d'études</h3>
+                    <span class="text-xs bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 px-2 py-1 rounded" data-i18n="project_type_professional">Proffessionel</span>
+                </div>
+                <p class="text-gray-700 dark:text-gray-300 mb-4 output-line" data-i18n="guard_desc">
+                    Le projet, nommé Guard : Global Unified Automated Defense, consiste à développer une application web innovante permettant 
+                    la gestion en temps réel des agents de sécurité (Utilisation de Mercure). 
+                    L’application vise à offrir aux clients la possibilité de commander des services, 
+                    de délimiter des zones à sécuriser, de communiquer, de suivre ses agents sur le terrain et de faire des analyses grâce au dashboard et aux rapports. 
+                    Dans le projet, on peut aussi trouver une interface dédiée à l'agent pour lui permettre de suivre ses tâches, de recevoir et envoyer des messages, 
+                    de voir ses notifications, de suivre en temps réel ses déplacements et ceux de ses co-worker sur une map et d'envoyer des alertes. Coté Administrateur, 
+                    la possibilité de gérer toutes les ressources telles que les payements,
+                    les agents, les packs, et bien plus. Il dispose aussi d'un tableau de bord pour fluidifier le controle.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="text-xs bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 px-2 py-1 rounded">Symfony</span>
+                    <span class="text-xs bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 px-2 py-1 rounded">PostgreSQL</span>
+                    <span class="text-xs bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 px-2 py-1 rounded">Tailwind CSS</span>
+                    <span class="text-xs bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 px-2 py-1 rounded">Mercure hub</span>
+                    <span class="text-xs bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 px-2 py-1 rounded">Système d'information géographique (SIG)</span>
+                    <span class="text-xs bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 px-2 py-1 rounded">JavaScript</span>
+                    <span class="text-xs bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 px-2 py-1 rounded">Leaflet</span>
+                    <span class="text-xs bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 px-2 py-1 rounded">Docker</span>
+                </div>
+
+                <div class="flex space-x-3">
+                    <a href="https://github.com/eTechProject" target="_blank"
+                        class="text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white text-sm flex items-center">
+                        <i class="fab fa-github mr-1"></i> <span data-i18n="view_source">Code source</span>
+                    </a>
+                </div>
+
+                <div class="flex space-x-6">
+                        <a href="https://guard-securityservice.vercel.app/" target="_blank"
+                           class="text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white text-sm flex items-center">
+                            <img src="src/assets/logo16.png" alt="Guard" class="mr-1 w-4 h-4"> <span>View Guard</span>
+                        </a>
+                </div>
+                
+                 <div class="flex space-x-6">
+                        <a href="https://etechconsulting-mg.com/" target="_blank"
+                           class="text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white text-sm flex items-center">
+                            <i class="fas fa-external-link-alt mr-1"></i> <span>View Entreprise - Etech Consulting</span>
+                        </a>
+                </div>
+
+                
+                
+            </div>
+
+            <div class="grid grid-cols-1 gap-6">
+                <div class="bg-gray-50 dark:bg-darkgray p-6 rounded-lg border border-gray-200 dark:border-gray-700 card-hover project-card">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-xl font-medium text-gray-900 dark:text-white" data-i18n="mvc_framework_title">Mini-Framework MVC Java Personnalisé</h3>
+                        <span class="text-xs bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 px-2 py-1 rounded" data-i18n="project_type_academic">Projet D'Études</span>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300 mb-4 output-line" data-i18n="mvc_framework_desc">
+                        Conception d'une librairie Java (Framework) destinée à simplifier le développement d'applications web dynamiques, 
+                        permettant aux développeurs de mapper automatiquement des URLs vers des méthodes Java via un système d'annotations personnalisées. 
+                        Développement axé sur l'architecture MVC (Modèle-Vue-Contrôleur) avec configuration par Servlet, 
+                        offrant une gestion fluide des contrôleurs sans configuration XML complexe pour chaque route.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="text-xs bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 px-2 py-1 rounded">Java</span>
+                        <span class="text-xs bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 px-2 py-1 rounded">Batch</span>
+                    </div>
+
+                    <div class="flex space-x-3">
+                        <a href="https://github.com/Pokaneliot/sprint_web_dynamique" target="_blank"
+                           class="text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white text-sm flex items-center">
+                            <i class="fab fa-github mr-1"></i> <span data-i18n="view_source">Code source</span>
+                        </a>
+                    </div>
+
+                </div>
+
+
+                <!-- Project 2 -->
+                <div class="bg-gray-50 dark:bg-darkgray p-6 rounded-lg border border-gray-200 dark:border-gray-700 card-hover project-card">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-xl font-medium text-gray-900 dark:text-white" data-i18n="crypto_title">Plateforme de Simulation de Transactions de Cryptomonnaies</h3>
+                        <span class="text-xs bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 px-2 py-1 rounded" data-i18n="project_type_academic">Académique</span>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300 mb-4 output-line" data-i18n="crypto_desc">
+                        Développement d'une application web complète dédiée à la simulation d'échanges 
+                        et de transactions de cryptomonnaies. Le système permet de gérer des flux financiers virtuels 
+                        et d'interagir avec des services externes (API d'identité). 
+                        L'architecture repose sur Symfony pour une logique métier robuste et Twig pour le rendu dynamique, 
+                        le tout connecté à une base de données PostgreSQL et conteneurisé pour faciliter le déploiement.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="text-xs bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 px-2 py-1 rounded">Symfony</span>
+                        <span class="text-xs bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 px-2 py-1 rounded">PostgreSQL</span>
+                        <span class="text-xs bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 px-2 py-1 rounded">JavaScript</span>
+                        <span class="text-xs bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 px-2 py-1 rounded">CSS</span>
+                        <span class="text-xs bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 px-2 py-1 rounded">Twig</span>
+                        <span class="text-xs bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 px-2 py-1 rounded">Docker</span>
+
+                    </div>
+                    <div class="flex space-x-3">
+                        <a href="https://github.com/Pokaneliot/Cryptomonnaies" target="_blank"
+                           class="text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white text-sm flex items-center">
+                            <i class="fab fa-github mr-1"></i> <span data-i18n="view_source">Code source</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="bg-gray-50 dark:bg-darkgray p-6 rounded-lg border border-gray-200 dark:border-gray-700 card-hover project-card">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-xl font-medium text-gray-900 dark:text-white" data-i18n="boulaG_title">Système de Gestion de Boulangerie "BoulanG"</h3>
+                        <span class="text-xs bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 px-2 py-1 rounded" data-i18n="project_type_academic">Académique</span>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300 mb-4 output-line" data-i18n="boulaG_desc">
+                        Développement d'une application web complète pour la gestion d'une boulangerie, 
+                        centralisant la production, les commandes et les stocks. Solution bâtie sur Spring Boot pour une architecture robuste, 
+                        utilisant des pages JSP/JSTL pour l'interface utilisateur et connectée à une base de données PostgreSQL. 
+                        Intégration d'une librairie personnalisée "MyBase" pour des besoins spécifiques de persistance.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="text-xs bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 px-2 py-1 rounded">Spring Boot 3.4.1</span>
+                        <span class="text-xs bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 px-2 py-1 rounded">Java</span>
+                        <span class="text-xs bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 px-2 py-1 rounded">JavaScript</span>
+                        <span class="text-xs bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 px-2 py-1 rounded">JSP</span>
+                        <span class="text-xs bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 px-2 py-1 rounded">PostgreSQL</span>
+                        <span class="text-xs bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 px-2 py-1 rounded">Maven</span>
+                        <span class="text-xs bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 px-2 py-1 rounded">Apache Tomcat</span>
+                    </div>
+                    <div class="flex space-x-3">
+                        <a href="https://github.com/Pokaneliot/BoulanG" target="_blank"
+                           class="text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white text-sm flex items-center">
+                            <i class="fab fa-github mr-1"></i> <span data-i18n="view_source">Code source</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 dark:bg-darkgray p-6 rounded-lg border border-gray-200 dark:border-gray-700 card-hover project-card">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-xl font-medium text-gray-900 dark:text-white" data-i18n="scolaire_title">Système de Gestion Scolaire (API) - École Andoharanofotsy</h3>
+                        <span class="text-xs bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 px-2 py-1 rounded" data-i18n="project_type_personal">Personnel</span>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300 mb-4 output-line" data-i18n="scolaire_desc">
+                         Développement d'une API backend pour la gestion informatisée 
+                         de l'école Andoharanofotsy. Le projet est construit sur la stack .NET (C#) 
+                         et structure les données scolaires à travers une architecture API RESTful. 
+                         Il inclut probablement des fonctionnalités de gestion des élèves, des classes ou de l'administration, 
+                         exposées via des contrôleurs pour être consommées par une interface clien
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="text-xs bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 px-2 py-1 rounded">C# (.NET)</span>
+                        <span class="text-xs bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 px-2 py-1 rounded">ASP.NET Core Web API</span>
+                        <span class="text-xs bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 px-2 py-1 rounded">JSON</span>
+                        <span class="text-xs bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 px-2 py-1 rounded">HTML</span>
+                        <span class="text-xs bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 px-2 py-1 rounded">JavaScript</span>
+                        <span class="text-xs bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 px-2 py-1 rounded">CSS</span>
+
+                    </div>
+                    <div class="flex space-x-3">
+                        <a href="https://github.com/Pokaneliot/Ecole-Andoharanofotsy" target="_blank"
+                           class="text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white text-sm flex items-center">
+                            <i class="fab fa-github mr-1"></i> <span data-i18n="view_source">Code source</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Experience section -->
+    <section id="experiences" class="mb-20 fade-in language-transition">
+        <div class="max-w-4xl mx-auto">
+            <div class="terminal-output mb-8">
+                <p class="mono text-gray-600 dark:text-gray-400 command-line" data-i18n="exp_cmd">cat experience.txt</p>
+                <h2 class="mono text-2xl font-medium text-gray-900 dark:text-white mt-4 mb-6" data-i18n="exp_title">Expériences Professionnelles</h2>
+            </div>
+
+            <div class="space-y-8">
+                <!-- Timeline container -->
+                <div class="relative">
+                    <!-- Timeline line -->
+                    <div class="absolute left-5 h-full w-0.5 dark:bg-gray-700" style="background-color: #fef3c7;"></div>
+
+                    <!-- Experience 1 - eTech -->
+                    <div class="relative pl-16 pb-8 group">
+                        <div class="absolute left-0 flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-900 transition" style="color: #92400e;">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="bg-gray-50 dark:bg-darkgray p-6 rounded-lg border border-gray-200 dark:border-gray-700 card-hover fade-in">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                                <h3 class="text-lg font-medium text-gray-900 dark:text-white" data-i18n="exp_etech_dev">Développeur Full-Stack - Stage</h3>
+                                <span class="text-sm text-gray-500 dark:text-gray-400" data-i18n="date_etech">Juin 2025 - Septembre 2025</span>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-400 mb-3 output-line">
+                                eTech Consulting • Madagascar
+                            </p>
+                            <p class="text-gray-700 dark:text-gray-300 output-line" data-i18n="exp_etech_desc">
+                                Stage de développement Full-Stack dans une entreprise technologique. Participation au développement d'applications web modernes et mise en pratique des technologies avancées.
+                            </p>
+                        </div>
+                    </div>
+
+                   
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Formation section -->
+    <section class="mb-20 fade-in">
+        <div class="max-w-4xl mx-auto">
+            <div class="terminal-output mb-8">
+                <p class="mono text-gray-600 dark:text-gray-400 command-line" data-i18n="edu_cmd">cat formation.txt</p>
+                <h2 class="mono text-2xl font-medium text-gray-900 dark:text-white mt-4 mb-6" data-i18n="edu_title">Formations</h2>
+            </div>
+
+            <div class="space-y-8">
+                <!-- Formation 1 - eTech -->
+                <div class="bg-gray-50 dark:bg-darkgray p-6 rounded-lg border border-gray-200 dark:border-gray-700 card-hover fade-in">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                        <h3 class="text-lg font-medium text-gray-900 dark:text-white" data-i18n="edu_php_title">Formation PHP Avancé</h3>
+                        <span class="text-sm text-gray-500 dark:text-gray-400" data-i18n="date_php_training">Mai 2025</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400 mb-3 output-line">eTech • Madagascar</p>
+                    <p class="text-gray-700 dark:text-gray-300 output-line" data-i18n="edu_php_desc">
+                        Formation intensive en développement PHP avec le framework Symfony.
+                        Apprentissage des bonnes pratiques, architecture MVC, sécurité et performance des applications web.
+                    </p>
+                    <div class="mt-4">
+                        <span class="text-sm font-medium text-gray-700 dark:text-gray-300" data-i18n="edu_php_skills">Compétences acquises:</span>
+                        <ul class="list-disc list-inside text-gray-600 dark:text-gray-400 mt-2 space-y-1">
+                            <li data-i18n="edu_php_skill1">Développement d'applications web avec Symfony</li>
+                            <li data-i18n="edu_php_skill2">Conception d'API RESTful</li>
+                            <li data-i18n="edu_php_skill3">Optimisation des performances</li>
+                            <li data-i18n="edu_php_skill4">Sécurité des applications web</li>
+                            <li data-i18n="edu_php_skill5">Tests unitaires et fonctionnels</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Formation 2 - ITU -->
+                <div class="bg-gray-50 dark:bg-darkgray p-6 rounded-lg border border-gray-200 dark:border-gray-700 card-hover fade-in">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                        <h3 class="text-lg font-medium text-gray-900 dark:text-white" data-i18n="edu_licence_title">Licence en Informatique</h3>
+                        <span class="text-sm text-gray-500 dark:text-gray-400" data-i18n="date_licence">2022 - 2025</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400 mb-3 output-line">IT University - Antananarivo/Madagascar</p>
+                    <p class="text-gray-700 dark:text-gray-300 output-line" data-i18n="edu_licence_desc">
+                        Formation complète en informatique avec spécialisation en développement logiciel et systèmes intelligents.
+                        Acquisition de compétences en programmation, bases de données et intelligence artificielle.
+                    </p>
+                </div>
+
+
+                <!-- Certifications GRID -->
+                <div class="mb-12">
+                    <div class="terminal-output mb-8">
+                        <p class="mono text-gray-600 dark:text-gray-400 command-line" data-i18n="cert_cmd">ls certifications/</p>
+                        <h2 class="mono text-2xl font-medium text-gray-900 dark:text-white mt-4 mb-6" data-i18n="cert_title">Certifications</h2>
+                    </div>
+                    <!-- Grille responsive -->
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+                            <!-- Certification PHP -->
+                            <button
+                                class="relative group rounded-xl overflow-hidden border-2 border-gray-300 dark:border-gray-600 bg-white dark:bg-white shadow hover:shadow-xl hover:border-gray-400 dark:hover:border-gray-500 transition-all duration-200 focus:outline-none"
+                                onclick="openCertModal('src/assets/php_certif.jpg', 'Certification PHP Avancé (eTech, 2025)', '')">
+                                <img src="src/assets/php_certif.jpg"
+                                    alt="Certification PHP Avancé"
+                                    class="object-cover w-full h-28 sm:h-32 md:h-36 opacity-90 group-hover:opacity-100 transition duration-300" />
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-gray-400/40 dark:from-gray-600/50 to-transparent opacity-70 group-hover:opacity-80 transition duration-300">
+                                </div>
+                                <div
+                                    class="absolute bottom-0 left-0 w-full px-2 py-1 bg-black/70 text-white text-xs text-center">
+                                    PHP Avancé 
+                                </div>
+                                <div> 
+                                 <i class="rounded-full shadow absolute top-2 right-2 bg-white dark:bg-white fas fa-external-link-alt text-gray-700 dark:text-gray-600 p-2"></i>
+                                </div>
+                            </button>
+                        <!-- Add more certifications as needed -->
+                    </div>
+                </div>
+                <!-- /Certifications GRID -->
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Game section -->
+    <section id="game" class="mb-20 fade-in hidden md:block">
+        <div class="max-w-4xl mx-auto">
+            <div class="terminal-output mb-8">
+                <p class="mono text-gray-600 dark:text-gray-400 command-line">./play-arcade.sh</p>
+                <h2 class="mono text-2xl font-medium text-gray-900 dark:text-white mt-4 mb-6">Arcade Game</h2>
+            </div>
+
+            <div class="bg-gray-50 dark:bg-darkgray p-6 rounded-lg border border-gray-200 dark:border-gray-700 card-hover fade-in cursor-pointer hover:shadow-lg transition-shadow" onclick="openGameModal()">
+                <div class="text-center">
+                    <i class="fas fa-gamepad text-3xl mb-3" style="color: #92400e;"></i>
+                    <h3 class="text-lg font-semibold mb-2">Galactic Defender</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">Jeu de tir spatial rétro</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+    <!--Contact section -->
+    <section id="contact" class="mb-20 fade-in">
+        <div class="max-w-4xl mx-auto">
+            <div class="terminal-output mb-8">
+                <p class="mono text-gray-600 dark:text-gray-400 command-line">./contact_form.sh</p>
+                <h2 class="mono text-2xl font-medium text-gray-900 dark:text-white mt-4 mb-6" data-i18n="contact_title">Me contacter</h2>
+            </div>
+            
+            <div id="toast"
+                 class="absolute p-4 rounded-md transform translate-x-full transition-transform duration-300 ease-in-out bg-zinc-200 border shadow-md" style="color: #92400e; border-color: #fef3c7;">
+                <div class="flex items-center">
+                    <span id="toastIcon" class="mr-2"></span>
+                    <span id="toastMessage" class="text-sm font-medium"></span>
+                </div>
+            </div>
+
+            <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
+                <input type="hidden" name="access_key" value="75b20965-d69c-46df-96ac-d9d24e98b773">
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="name" class="block text-gray-700 dark:text-gray-300 mb-2" data-i18n="name_label">Nom</label>
+                        <input type="text" id="name" name="name" required
+                               class="w-full bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded px-4 py-2 text-gray-900 dark:text-gray-200 focus:outline-none focus:border-gray-500 dark:focus:border-gray-400 transition">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-gray-700 dark:text-gray-300 mb-2" data-i18n="email_label">Email</label>
+                        <input type="email" id="email" name="email" required
+                               class="w-full bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded px-4 py-2 text-gray-900 dark:text-gray-200 focus:outline-none focus:border-gray-500 dark:focus:border-gray-400 transition">
+                    </div>
+                </div>
+                <div>
+                    <label for="subject" class="block text-gray-700 dark:text-gray-300 mb-2" data-i18n="subject_label">Sujet</label>
+                    <input type="text" id="subject" name="subject" required
+                           class="w-full bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded px-4 py-2 text-gray-900 dark:text-gray-200 focus:outline-none focus:border-gray-500 dark:focus:border-gray-400 transition">
+                </div>
+                <div>
+                    <label for="message" class="block text-gray-700 dark:text-gray-300 mb-2" data-i18n="message_label">Message</label>
+                    <textarea id="message" name="message" rows="5" required
+                              class="w-full bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded px-4 py-2 text-gray-900 dark:text-gray-200 focus:outline-none focus:border-gray-500 dark:focus:border-gray-400 transition"></textarea>
+                </div>
+
+                <input type="hidden" name="from_name" value="flymetothemoon">
+
+                <!-- Champ honeypot anti-spam -->
+                <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+                <button type="submit" id="submitBtn"
+                        class="bg-gray-900 dark:bg-gray-700 hover:bg-black dark:hover:bg-gray-600 text-white font-medium py-3 px-6 rounded transition flex items-center justify-center min-h-[48px]">
+                    <i class="fas fa-paper-plane mr-2"></i> <span data-i18n="send_button">Envoyer</span>
+                </button>
+            </form>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer class="bg-white dark:bg-zinc-900 py-12 border-t border-gray-200 dark:border-zinc-900 fade-in">
+    <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0 text-center md:text-left">
+                    <h3 class="text-xl font-bold mb-2 gradient-text">RAMAMONJISOA Aina Aneliot</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm" data-i18n="footer_tagline">
+                        Développeur Full-Stack<br>
+                        Passionné par la création de solutions innovantes
+                    </p>
+                </div>
+
+                <div class="flex flex-col items-center md:items-end">
+                    <div class="flex space-x-6 mb-4">
+                        <a href="https://github.com/Pokaneliot" target="_blank" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 text-xl">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/aneliot-ramamonjisoa-198767297" target="_blank" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 text-xl">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="mailto:aneliotramamonjisoa@gmail.com" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 text-xl">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="src/assets/cv.pdf" download class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 text-xl">
+                            <i class="fas fa-file-download"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 pt-6 border-t border-gray-200 dark:border-gray-700 text-center">
+                <p class="mono text-gray-500 dark:text-gray-500 text-sm" data-i18n="footer_copyright">
+                    © 2025 RAMAMONJISOA Aina Aneliot. Tous droits réservés.<br>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Modal de certification amélioré -->
+<div id="certModal" class="fixed top-0 left-0 w-full h-full flex items-center justify-center z-[1000] opacity-0 invisible transition-opacity duration-300 ease-in-out backdrop-blur-md">
+    <div class="relative bg-white dark:bg-zinc-900 rounded-xl max-w-[90%] max-h-[90vh] w-[800px] overflow-auto border border-gray-300 dark:border-gray-700">
+        <button id="closeCertModal" class="absolute top-1 right-1 bg-transparent border-none text-2xl text-gray-500 dark:text-gray-400 cursor-pointer w-10 h-10 flex items-center justify-center rounded-full transition-all duration-300 hover:text-red-500 dark:hover:text-red-400 hover:bg-black/5 dark:hover:bg-white/5 z-10" aria-label="Fermer le certificat" data-i18n-attr="aria-label:close_cert">&times;</button>
+        <div class="p-6">
+            <img id="certModalImg" src="" alt="Certification" class="max-w-full max-h-[70vh] block mx-auto rounded-lg shadow-md">
+            <div id="certModalTitle" class="text-xl font-semibold text-gray-800 dark:text-gray-200 my-5 text-center"></div>
+            <a id="certModalLink" href="#" target="_blank" class="inline-block bg-gray-700 hover:bg-gray-800 dark:bg-gray-600 dark:hover:bg-gray-700 text-white font-medium py-2 px-4 rounded-md no-underline text-center mx-auto my-5 transition-all duration-300 hover:-translate-y-0.5 shadow hover:shadow-lg" data-i18n="view_on_accredible">
+                Voir sur Accredible
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de jeu -->
+<div id="gameModal" class="fixed inset-0 z-[1000] opacity-0 invisible transition-opacity duration-300 ease-in-out backdrop-blur-md">
+    <div class="relative w-full h-full bg-white dark:bg-zinc-900 overflow-hidden">
+        <button id="closeGameModal" class="absolute top-4 right-4 bg-transparent border-none text-2xl text-gray-500 dark:text-gray-400 cursor-pointer w-10 h-10 flex items-center justify-center rounded-full transition-all duration-300 hover:text-red-500 dark:hover:text-red-400 hover:bg-black/5 dark:hover:bg-white/5 z-10" aria-label="Fermer le jeu">&times;</button>
+        <iframe src="src/arcade.html" class="w-full h-full border-0"></iframe>
+    </div>
+</div>
+<script src="src/dist/script/translations.js" defer></script>
+<script src="src/dist/script/language.js" defer></script>
+<script src="src/dist/script/script.min.js" defer></script>
+<script src="src/dist/script/form.min.js" defer></script>
+<script src="src/dist/script/style.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll("img").forEach(img => {
+            if (!img.hasAttribute("loading")) img.setAttribute("loading", "lazy");
+    });
+
+    window.addEventListener('DOMContentLoaded', function () {
+        // Animation pixel art - plus immersive
+        window.addEventListener('load', function () {
+            // Délai optimisé pour apprécier l'animation pixel
+            setTimeout(() => {
+                const loader = document.getElementById('pageLoader');
+                if (loader) {
+                    loader.classList.add('hidden');
+                    
+                    // Nettoyer après l'animation
+                    setTimeout(() => {
+                        loader.style.display = 'none';
+                    }, 600);
+                }
+                
+                initScrollAnimations();
+                animateProgressBars();
+            }, 1200); // Plus long pour apprécier le style rétro
+        });
+    });
+
+        function initScrollAnimations() {
+            const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        if (entry.target.classList.contains('project-card')) {
+                            const cards = document.querySelectorAll('.project-card');
+                            const idx = Array.from(cards).indexOf(entry.target);
+                            setTimeout(() => { entry.target.classList.add('visible'); }, idx * 150);
+                        }
+                    }
+                });
+            }, observerOptions);
+            document.querySelectorAll('.fade-in, .project-card').forEach(el => observer.observe(el));
+        }
+
+        function animateProgressBars() {
+            const progressBars = document.querySelectorAll('.progress-fill');
+            const progressObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const progressBar = entry.target;
+                        const width = progressBar.style.getPropertyValue('--progress-width');
+                        setTimeout(() => { progressBar.style.width = width; }, 300);
+                        progressObserver.unobserve(progressBar);
+                    }
+                });
+            });
+            progressBars.forEach(bar => progressObserver.observe(bar));
+        }
+
+        const originalChangeLanguage = window.changeLanguage;
+        if (originalChangeLanguage) {
+            window.changeLanguage = function (lang) {
+                document.querySelectorAll('.language-transition').forEach(el => el.classList.remove('active'));
+                setTimeout(() => {
+                    originalChangeLanguage(lang);
+                    setTimeout(() => {
+                        document.querySelectorAll('.language-transition').forEach(el => el.classList.add('active'));
+                    }, 50);
+                }, 150);
+            };
+        }
+        setTimeout(() => {
+            document.querySelectorAll('.language-transition').forEach(el => el.classList.add('active'));
+        }, 800);
+    });
+
+    function openCertModal(img, title, link) {
+        const modal = document.getElementById('certModal');
+        const modalImg = document.getElementById('certModalImg');
+        const modalTitle = document.getElementById('certModalTitle');
+        const modalLink = document.getElementById('certModalLink');
+        modalImg.src = '';
+        modalImg.alt = 'Chargement...';
+        modalTitle.textContent = 'Chargement en cours...';
+        const image = new Image();
+        image.src = img;
+        image.onload = function () {
+            modalImg.src = img;
+            modalImg.alt = title;
+            modalTitle.textContent = title;
+            modalLink.href = link;
+            if (image.height > window.innerHeight * 0.7) {
+                modalImg.classList.add('max-h-[70vh]', 'w-auto');
+                modalImg.classList.remove('max-w-full');
+            } else {
+                modalImg.classList.add('max-w-full');
+                modalImg.classList.remove('max-h-[70vh]', 'w-auto');
+            }
+            modal.classList.remove('invisible', 'opacity-0');
+            modal.classList.add('visible', 'opacity-100');
+            document.body.classList.add('overflow-hidden');
+        };
+        image.onerror = function () {
+            modalTitle.textContent = 'Erreur de chargement';
+            modalImg.src = '';
+            modalImg.alt = 'Image non disponible';
+            modalLink.style.display = 'none';
+            modal.classList.remove('invisible', 'opacity-0');
+            modal.classList.add('visible', 'opacity-100');
+            document.body.classList.add('overflow-hidden');
+        };
+    }
+    document.getElementById('closeCertModal').onclick = function () {
+        document.getElementById('certModal').classList.add('invisible', 'opacity-0');
+        document.getElementById('certModal').classList.remove('visible', 'opacity-100');
+        document.body.classList.remove('overflow-hidden');
+    };
+    document.getElementById('certModal').onclick = function (e) {
+        if (e.target === this) {
+            this.classList.add('invisible', 'opacity-0');
+            this.classList.remove('visible', 'opacity-100');
+            document.body.classList.remove('overflow-hidden');
+        }
+    };
+    document.addEventListener('keydown', function (e) {
+        const modal = document.getElementById('certModal');
+        if (e.key === 'Escape' && modal.classList.contains('visible')) {
+            modal.classList.add('invisible', 'opacity-0');
+            modal.classList.remove('visible', 'opacity-100');
+            document.body.classList.remove('overflow-hidden');
+        }
+    });
+
+    function openGameModal() {
+        const modal = document.getElementById('gameModal');
+        modal.classList.remove('invisible', 'opacity-0');
+        modal.classList.add('visible', 'opacity-100');
+        document.body.classList.add('overflow-hidden');
+    }
+
+    document.getElementById('closeGameModal').onclick = function () {
+        document.getElementById('gameModal').classList.add('invisible', 'opacity-0');
+        document.getElementById('gameModal').classList.remove('visible', 'opacity-100');
+        document.body.classList.remove('overflow-hidden');
+    };
+
+    document.getElementById('gameModal').onclick = function (e) {
+        if (e.target === this) {
+            this.classList.add('invisible', 'opacity-0');
+            this.classList.remove('visible', 'opacity-100');
+            document.body.classList.remove('overflow-hidden');
+        }
+    };
+
+    document.addEventListener('keydown', function (e) {
+        const modal = document.getElementById('gameModal');
+        if (e.key === 'Escape' && modal.classList.contains('visible')) {
+            modal.classList.add('invisible', 'opacity-0');
+            modal.classList.remove('visible', 'opacity-100');
+            document.body.classList.remove('overflow-hidden');
+        }
+    });
+</script>
+</body>
+</html>
