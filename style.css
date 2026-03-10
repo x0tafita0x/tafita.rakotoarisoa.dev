@@ -353,13 +353,16 @@ h2.s-title .y {
   background: var(--surface);
 }
 .proj-grid {
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   gap: 2px;
 }
 .proj-card {
   background: var(--card);
   border: 1px solid var(--border);
   padding: 2.8rem;
+  width: 100%;
   transition:
     border-color 0.3s,
     transform 0.3s;
@@ -369,19 +372,19 @@ h2.s-title .y {
   transform: translate(-4px, -4px);
 }
 .proj-card.big {
-  display: grid;
+  /* display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
-  align-items: center;
+  align-items: center; */
 }
 .proj-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 2px;
 }
 .proj-index {
   font-family: var(--fm);
-  font-size: 0.65rem;
+  font-size: 0.8rem;
   color: var(--muted);
   letter-spacing: 0.15em;
   margin-bottom: 1.4rem;

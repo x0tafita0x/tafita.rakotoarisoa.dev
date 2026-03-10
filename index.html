@@ -1,208 +1,325 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tafita - Developpeur Web</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-
-</head>
-<body>
-
-<nav>
-  <a href="#" class="logo">RRT<em>.dev</em></a>
-  <ul class="nav-center">
-    <li><a href="#about"     id="nl-about">A propos</a></li>
-    <li><a href="#skills"    id="nl-skills">Stack</a></li>
-    <li><a href="#projects"  id="nl-proj">Projets</a></li>
-    <li><a href="#education" id="nl-edu">Formation</a></li>
-    <li><a href="#contact"   id="nl-contact">Contact</a></li>
-  </ul>
-  <div class="lang-switch">
-    <button class="on" onclick="window.setLang('fr')">FR</button>
-    <button onclick="window.setLang('en')">EN</button>
-  </div>
-</nav>
-
-<section id="hero">
-  <div class="hero-bg-grid"></div>
-  <div class="hero-tag" id="h-tag">Developpeur Web</div>
-  <h1 class="hero-name">
-    Rakotoarisoa<br>Randriamirado<br><span class="y">Tafita</span>
-  </h1>
-  <div class="hero-bottom">
-    <p class="hero-subtitle" id="h-sub">Je transforme des idees en <strong>solutions numeriques</strong> &mdash;<br>du backend robuste a l'interface soignee.</p>
-    <div class="hero-actions">
-      <a href="#projects" class="btn btn-fill"  id="h-btn1">Mes projets</a>
-      <a href="#contact"  class="btn btn-ghost" id="h-btn2">Me contacter</a>
-    </div>
-  </div>
-</section>
-
-<section id="about">
-  <div class="s-tag"><b>01</b><span id="nl2-about">A propos</span></div>
-  <div class="about-wrap">
-    <div class="about-text">
-      <h2 class="s-title" id="ab-title">Resoudre,<br>pas juste <span class="y">coder.</span></h2>
-      <p id="ab-p1">Je transforme des idees en solutions numeriques. Resoudre des problemes complexes avec des solutions elegantes, c'est ce qui me passionne.</p>
-      <p id="ab-p2">Au-dela du code, je cherche a <strong>comprendre les besoins reels des utilisateurs</strong> pour creer des applications qui ont du sens et qui durent. Ma capacite d'adaptation me permet de maitriser rapidement les outils les plus pertinents pour chaque projet.</p>
-      <p id="ab-p3">Base a <strong>Antananarivo, Madagascar</strong>. Licence en Informatique obtenue en 2025. Disponible pour de nouvelles opportunites.</p>
-    </div>
-
-  </div>
-</section>
-
-<section id="skills">
-  <div class="s-tag"><b>02</b><span id="nl2-skills">Stack</span></div>
-  <h2 class="s-title" id="sk-title">Ce avec quoi<br>je <span class="y">travaille.</span></h2>
-  <div class="skills-wrap">
-    <div class="skill-col r">
-      <div class="skill-col-title">Langages &amp; Frameworks</div>
-      <div class="tags">
-        <span class="tag">C# / .NET</span><span class="tag">Java</span><span class="tag">Spring Boot</span>
-        <span class="tag">PHP</span><span class="tag">Symfony</span><span class="tag">JavaScript</span>
-        <span class="tag">React</span><span class="tag">Angular</span><span class="tag">ASP.NET</span><span class="tag">Python</span>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tafita - Developpeur Web</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav>
+      <a href="#" class="logo">RRT<em>.dev</em></a>
+      <ul class="nav-center">
+        <li><a href="#about" id="nl-about">A propos</a></li>
+        <li><a href="#skills" id="nl-skills">Stack</a></li>
+        <li><a href="#projects" id="nl-proj">Projets</a></li>
+        <li><a href="#education" id="nl-edu">Formation</a></li>
+        <li><a href="#contact" id="nl-contact">Contact</a></li>
+      </ul>
+      <div class="lang-switch">
+        <button class="on" onclick="window.setLang('fr')">FR</button>
+        <button onclick="window.setLang('en')">EN</button>
       </div>
-    </div>
-    <div class="skill-col r r2">
-      <div class="skill-col-title">Bases de donnees</div>
-      <div class="tags">
-        <span class="tag">PostgreSQL</span><span class="tag">SQL Server</span><span class="tag">MySQL</span>
-      </div>
-    </div>
-    <div class="skill-col r r3">
-      <div class="skill-col-title">Outils &amp; DevOps</div>
-      <div class="tags">
-        <span class="tag">Git</span><span class="tag">Docker</span>
-        <span class="tag">Clean Architecture</span><span class="tag">xUnit</span><span class="tag">REST API</span>
-      </div>
-    </div>
-  </div>
-</section>
+    </nav>
 
-<section id="projects">
-  <div class="s-tag"><b>03</b><span id="nl2-proj">Projets</span></div>
-  <h2 class="s-title" id="pr-title">Ce que<br><span class="y">j'ai construit.</span></h2>
-  <div class="proj-grid">
-
-    <div class="proj-card big r">
-      <div>
-        <div class="proj-index">01 &mdash; Stage &middot; 2025</div>
-        <div class="proj-badge" id="p1-badge">Aviation Civile de Madagascar &mdash; DSE</div>
-        <h3 class="proj-title" id="p1-title">Supervision de Securite Aerienne</h3>
-        <p class="proj-desc" id="p1-desc">Application web pour la Direction de la Supervision de Securite : gestion de facturation et suivi des paiements, calendrier reglementaire des inspections et audits, gestion des roles avec tracabilite complete des connexions et actions. Architecture Clean, tests unitaires xUnit.</p>
-        <div class="proj-tags">
-          <span class="ptag">Angular</span><span class="ptag">ASP.NET</span>
-          <span class="ptag">SQL Server</span><span class="ptag">Clean Arch.</span><span class="ptag">xUnit</span>
-        </div>
-        <div class="proj-links">
-          <a href="https://github.com/x0tafita0x/securite-aerienne" target="_blank" rel="noopener" class="plink">Code source &rarr;</a>
+    <section id="hero">
+      <div class="hero-bg-grid"></div>
+      <div class="hero-tag" id="h-tag">Developpeur Web</div>
+      <h1 class="hero-name">
+        Rakotoarisoa<br />Randriamirado<br /><span class="y">Tafita</span>
+      </h1>
+      <div class="hero-bottom">
+        <p class="hero-subtitle" id="h-sub">
+          Je transforme des idees en
+          <strong>solutions numeriques</strong> &mdash;<br />du backend robuste
+          a l'interface soignee.
+        </p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-fill" id="h-btn1">Mes projets</a>
+          <a href="#contact" class="btn btn-ghost" id="h-btn2">Me contacter</a>
         </div>
       </div>
-      <div class="proj-mockup">&#9992;&#65039;</div>
-    </div>
+    </section>
 
-    <div class="proj-row">
-      <div class="proj-card r">
-        <div class="proj-index">02 &mdash; Open Source &middot; 2025</div>
-        <h3 class="proj-title" id="p2-title">CRM Open Source</h3>
-        <p class="proj-desc" id="p2-desc">Reprise et amelioration d'un CRM open source Spring Boot : module de dashboard analytique, import de donnees CSV avec validation et gestion des erreurs.</p>
-        <div class="proj-tags">
-          <span class="ptag">Java</span><span class="ptag">Spring Boot</span><span class="ptag">Dashboard</span><span class="ptag">CSV</span>
-        </div>
-        <div class="proj-links">
-          <a href="https://github.com/x0tafita0x/crm" target="_blank" rel="noopener" class="plink">Code source &rarr;</a>
-        </div>
-      </div>
-      <div class="proj-card r r2">
-        <div class="proj-index">03 &mdash; Hackathon Redshalk &#129352; &middot; 2024</div>
-        <h3 class="proj-title" id="p3-title">GreenBrain</h3>
-        <p class="proj-desc" id="p3-desc">Application IA pour optimiser la culture de champignons &mdash; modele predictif Python base sur des facteurs environnementaux, interface web Spring Boot. 2e place, equipe de 4.</p>
-        <div class="proj-tags">
-          <span class="ptag">Python</span><span class="ptag">Spring Boot</span><span class="ptag">IA predictive</span>
-        </div>
-        <div class="proj-links">
-          <a href="https://github.com/x0tafita0x/green-brain" target="_blank" rel="noopener" class="plink">Code source &rarr;</a>
+    <section id="about">
+      <div class="s-tag"><b>01</b><span id="nl2-about">A propos</span></div>
+      <div class="about-wrap">
+        <div class="about-text">
+          <h2 class="s-title" id="ab-title">
+            Resoudre,<br />pas juste <span class="y">coder.</span>
+          </h2>
+          <p id="ab-p1">
+            Je transforme des idees en solutions numeriques. Resoudre des
+            problemes complexes avec des solutions elegantes, c'est ce qui me
+            passionne.
+          </p>
+          <p id="ab-p2">
+            Au-dela du code, je cherche a
+            <strong>comprendre les besoins reels des utilisateurs</strong> pour
+            creer des applications qui ont du sens et qui durent. Ma capacite
+            d'adaptation me permet de maitriser rapidement les outils les plus
+            pertinents pour chaque projet.
+          </p>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div class="proj-card r">
-      <div class="proj-index">04 &mdash; Academique &middot; 2025</div>
-      <h3 class="proj-title" id="p4-title">Plateforme Crypto</h3>
-      <p class="proj-desc" id="p4-desc">Simulation de transactions de cryptomonnaies : API d'identite ASP.NET pour l'authentification, application Symfony pour la gestion des utilisateurs, transactions et suivi en temps reel des cours.</p>
-      <div class="proj-tags">
-        <span class="ptag">ASP.NET</span><span class="ptag">C#</span><span class="ptag">Symfony</span><span class="ptag">PHP</span><span class="ptag">MySQL</span>
-      </div>
-      <div class="proj-links">
-        <a href="https://github.com/x0tafita0x/ProjetCloud" target="_blank" rel="noopener" class="plink">API &rarr;</a>
-        <a href="https://github.com/x0tafita0x/Crypto" target="_blank" rel="noopener" class="plink">Frontend &rarr;</a>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<section id="education">
-  <div class="s-tag"><b>04</b><span id="nl2-edu">Formation</span></div>
-  <h2 class="s-title" id="edu-title">Parcours &amp;<span class="y"><br>formations.</span></h2>
-  <div class="edu-list">
-    <div class="edu-item r">
-      <div>
-        <div class="edu-degree" id="e1-deg">Licence en Informatique</div>
-        <div class="edu-school">IT University, Antananarivo</div>
-      </div>
-      <div class="edu-year">2022 &mdash; 2025</div>
-    </div>
-    <div class="edu-item r r2">
-      <div>
-        <div class="edu-degree" id="e2-deg">Advanced 2 Certificate &mdash; Anglais</div>
-        <div class="edu-school">English Teaching Program, Antananarivo</div>
-      </div>
-      <div class="edu-year">2025</div>
-    </div>
-  </div>
-</section>
-
-<section id="contact">
-  <div class="s-tag"><b>05</b><span id="nl2-contact">Contact</span></div>
-  <div class="contact-wrap">
-    <h2 class="contact-heading r" id="ct-title">On se<br><span class="y">parle ?</span></h2>
-    <p class="contact-sub r" id="ct-sub">Un projet, une opportunite, une question &mdash; je reponds rapidement. Pas de formulaire, un simple message suffit.</p>
-    <div class="contact-list r">
-      <a href="#" id="email-link" class="clink">
-        <div class="clink-left">
-          <span class="clink-type" id="ct-email-lbl">Email</span>
-          <span class="clink-val" id="email-val">rrtafita [at] gmail.com</span>
+    <section id="skills">
+      <div class="s-tag"><b>02</b><span id="nl2-skills">Stack</span></div>
+      <h2 class="s-title" id="sk-title">
+        Ce avec quoi<br />je <span class="y">travaille.</span>
+      </h2>
+      <div class="skills-wrap">
+        <div class="skill-col r">
+          <div class="skill-col-title">Langages &amp; Frameworks</div>
+          <div class="tags">
+            <span class="tag">C# / .NET</span><span class="tag">Java</span
+            ><span class="tag">Spring Boot</span> <span class="tag">PHP</span
+            ><span class="tag">Symfony</span><span class="tag">JavaScript</span>
+            <span class="tag">React</span><span class="tag">Angular</span
+            ><span class="tag">ASP.NET</span><span class="tag">Python</span>
+          </div>
         </div>
-        <span class="clink-arrow">&rarr;</span>
-      </a>
-      <a href="tel:+261382862449" class="clink">
-        <div class="clink-left">
-          <span class="clink-type" id="ct-tel-lbl">Telephone</span>
-          <span class="clink-val">038 28 624 49</span>
+        <div class="skill-col r r2">
+          <div class="skill-col-title">Bases de donnees</div>
+          <div class="tags">
+            <span class="tag">PostgreSQL</span
+            ><span class="tag">SQL Server</span><span class="tag">MySQL</span
+            ><span class="tag">MongoDB</span>
+          </div>
         </div>
-        <span class="clink-arrow">&rarr;</span>
-      </a>
-      <a href="https://github.com/x0tafita0x" target="_blank" rel="noopener" class="clink">
-        <div class="clink-left">
-          <span class="clink-type">GitHub</span>
-          <span class="clink-val">github.com/x0tafita0x</span>
+        <div class="skill-col r r3">
+          <div class="skill-col-title">Outils</div>
+          <div class="tags">
+            <span class="tag">Git</span><span class="tag">Docker</span>
+            <span class="tag">Firebase</span>
+          </div>
         </div>
-        <span class="clink-arrow">&rarr;</span>
-      </a>
-    </div>
-    <a href="CV_TAFITA_2026.pdf" download class="btn btn-fill r" id="ct-cv">Telecharger le CV</a>
-  </div>
-</section>
+      </div>
+    </section>
 
-<footer>
-  <span class="foot">&copy; 2026 Rakotoarisoa Randriamirado Tafita &mdash; <b>Antananarivo, MG</b></span>
-  <span class="foot" id="ft-status">&#x1F7E2; Disponible pour de nouvelles opportunites</span>
-</footer>
+    <section id="projects">
+      <div class="s-tag"><b>03</b><span id="nl2-proj">Projets</span></div>
+      <h2 class="s-title" id="pr-title">
+        Ce que<br /><span class="y">j'ai construit.</span>
+      </h2>
+      <div class="proj-grid">
+        <div class="proj-card big r">
+          <div>
+            <div class="proj-index">2025</div>
+            <div class="proj-badge" id="p1-badge">
+              Aviation Civile de Madagascar &mdash; DSE
+            </div>
+            <h3 class="proj-title" id="p1-title">
+              Supervision de Securite Aerienne
+            </h3>
+            <p class="proj-desc" id="p1-desc">
+              Application web complete developpee lors de mon stage a l'Aviation
+              Civile de Madagascar. Elle centralise la gestion administrative de
+              la DSE : facturation des compagnies aeriennes avec suivi des
+              paiements, calendrier interactif pour planifier les inspections et
+              audits reglementaires, gestion fine des utilisateurs et de leurs
+              roles. Chaque connexion et chaque action est enregistree dans un
+              historique de tracabilite. Architecture Clean en backend ASP.NET,
+              Angular en frontend, SQL Server pour la persistance. Tests
+              unitaires xUnit couvrant les services metiers critiques.
+            </p>
+            <div class="proj-tags">
+              <span class="ptag">Angular</span><span class="ptag">ASP.NET</span>
+              <span class="ptag">SQL Server</span
+              ><span class="ptag">Clean Arch.</span
+              ><span class="ptag">xUnit</span>
+            </div>
+            <div class="proj-links">
+              <a
+                href="https://github.com/x0tafita0x/securite-aerienne"
+                target="_blank"
+                rel="noopener"
+                class="plink"
+                >Code source &rarr;</a
+              >
+            </div>
+          </div>
+        </div>
 
-<script src="script.js"></script>
-</body>
+        <div class="proj-row">
+          <div class="proj-card r">
+            <div class="proj-index">2025</div>
+            <h3 class="proj-title" id="p2-title">CRM Open Source</h3>
+            <p class="proj-desc" id="p2-desc">
+              Reprise d'un CRM open source existant sous Spring Boot pour y
+              ajouter deux modules manquants. Un dashboard analytique avec
+              indicateurs cles (activite recente, evolution des contacts, taux
+              de conversion). Un systeme d'import CSV qui charge des donnees en
+              masse, valide chaque ligne independamment et remonte les erreurs
+              precisement a l'utilisateur sans bloquer les lignes valides.
+            </p>
+            <div class="proj-tags">
+              <span class="ptag">Java</span><span class="ptag">Spring Boot</span
+              ><span class="ptag">Dashboard</span><span class="ptag">CSV</span>
+            </div>
+            <div class="proj-links">
+              <a
+                href="https://github.com/x0tafita0x/crm"
+                target="_blank"
+                rel="noopener"
+                class="plink"
+                >Code source &rarr;</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="proj-card r">
+          <div class="proj-index">2025</div>
+          <h3 class="proj-title" id="p4-title">Plateforme Crypto</h3>
+          <p class="proj-desc" id="p4-desc">
+            Plateforme de simulation de trading crypto developpee en contexte
+            academique, architecturee en deux parties independantes. Une API
+            d'identite en ASP.NET (C#) qui gere l'inscription, la connexion et
+            les tokens JWT. Une application web Symfony qui consomme cette API :
+            les utilisateurs peuvent simuler des achats et ventes de
+            cryptomonnaies, consulter leur portefeuille en temps reel et suivre
+            l'evolution des cours.
+          </p>
+          <div class="proj-tags">
+            <span class="ptag">ASP.NET</span><span class="ptag">C#</span
+            ><span class="ptag">Symfony</span><span class="ptag">PHP</span
+            ><span class="ptag">MySQL</span>
+          </div>
+          <div class="proj-links">
+            <a
+              href="https://github.com/x0tafita0x/ProjetCloud"
+              target="_blank"
+              rel="noopener"
+              class="plink"
+              >API &rarr;</a
+            >
+            <a
+              href="https://github.com/x0tafita0x/Crypto"
+              target="_blank"
+              rel="noopener"
+              class="plink"
+              >Frontend &rarr;</a
+            >
+          </div>
+        </div>
+
+        <div class="proj-card r r2">
+          <div class="proj-index">2024</div>
+          <h3 class="proj-title" id="p3-title">GreenBrain</h3>
+          <p class="proj-desc" id="p3-desc">
+            Projet realise en equipe de 4 (3 devs + 1 agripreneur) au hackathon
+            Redshalk 2024, 2e place. Objectif : aider les cultivateurs de
+            champignons a optimiser leurs conditions de pousse. J'ai concu un
+            modele predictif en Python qui analyse temperature, humidite et CO2
+            pour recommander des ajustements en temps reel. L'interface Spring
+            Boot visualise les mesures et declenche des alertes quand les seuils
+            sont franchis.
+          </p>
+          <div class="proj-tags">
+            <span class="ptag">Python</span><span class="ptag">Spring Boot</span
+            ><span class="ptag">IA predictive</span>
+          </div>
+          <div class="proj-links">
+            <a
+              href="https://github.com/x0tafita0x/green-brain"
+              target="_blank"
+              rel="noopener"
+              class="plink"
+              >Code source &rarr;</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="s-tag"><b>04</b><span id="nl2-edu">Formation</span></div>
+      <h2 class="s-title" id="edu-title">
+        Parcours &amp;<span class="y"><br />formations.</span>
+      </h2>
+      <div class="edu-list">
+        <div class="edu-item r">
+          <div>
+            <div class="edu-degree" id="e1-deg">Licence en Informatique</div>
+            <div class="edu-school">IT University, Antananarivo</div>
+          </div>
+          <div class="edu-year">2025</div>
+        </div>
+        <div class="edu-item r r2">
+          <div>
+            <div class="edu-degree" id="e2-deg">
+              Advanced 2 Certificate &mdash; Anglais
+            </div>
+            <div class="edu-school">English Teaching Program, Antananarivo</div>
+          </div>
+          <div class="edu-year">2025</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="s-tag"><b>05</b><span id="nl2-contact">Contact</span></div>
+      <div class="contact-wrap">
+        <h2 class="contact-heading r" id="ct-title">
+          On se<br /><span class="y">parle ?</span>
+        </h2>
+        <p class="contact-sub r" id="ct-sub">
+          Un projet, une opportunite, une question &mdash; je reponds
+          rapidement. Pas de formulaire, un simple message suffit.
+        </p>
+        <div class="contact-list r">
+          <a href="#" id="email-link" class="clink">
+            <div class="clink-left">
+              <span class="clink-type" id="ct-email-lbl">Email</span>
+              <span class="clink-val" id="email-val"
+                >rrtafita [at] gmail.com</span
+              >
+            </div>
+            <span class="clink-arrow">&rarr;</span>
+          </a>
+          <a href="tel:+261382862449" class="clink">
+            <div class="clink-left">
+              <span class="clink-type" id="ct-tel-lbl">Telephone</span>
+              <span class="clink-val">038 28 624 49</span>
+            </div>
+            <span class="clink-arrow">&rarr;</span>
+          </a>
+          <a
+            href="https://github.com/x0tafita0x"
+            target="_blank"
+            rel="noopener"
+            class="clink"
+          >
+            <div class="clink-left">
+              <span class="clink-type">GitHub</span>
+              <span class="clink-val">github.com/x0tafita0x</span>
+            </div>
+            <span class="clink-arrow">&rarr;</span>
+          </a>
+        </div>
+        <a href="CV_TAFITA_2026.pdf" download class="btn btn-fill r" id="ct-cv"
+          >Telecharger le CV</a
+        >
+      </div>
+    </section>
+
+    <footer>
+      <span class="foot"
+        >&copy; 2026 Rakotoarisoa Randriamirado Tafita &mdash;
+        <b>Antananarivo, MG</b></span
+      >
+      <span class="foot" id="ft-status"
+        >&#x1F7E2; Disponible pour de nouvelles opportunites</span
+      >
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
 </html>
